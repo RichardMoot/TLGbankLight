@@ -16,8 +16,7 @@ Language Modelling **3(1)**, pp. 229-265.
 # Files and Directories
 
 The current version of the TLGbank Light
-contains a total of 15,590 sentences (445,918
-words); of these sentences, 14,521 have been parsed (411,520 words).
+contains a total of 1,599 sentences (out of 15,590) and  36,144 words (out of 445,918 for the full TLGbank); all sentences have been parsed.
 
 - _maxentdata.txt_ contains the input data for training the [C&C supertagger
   and part-of-speech tagger](http://svn.ask.it.usyd.edu.au/trac/candc/wiki)
