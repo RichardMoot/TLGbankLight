@@ -1,12 +1,12 @@
 # TLGbank Light
 
-TLGbank Light is a small, distributed part of the [TLGbank](https://richardmoot.github.io/TLGbank/), a type-logical treebank for French. The
+TLGbank Light is the small, publicly available part of the [TLGbank](https://richardmoot.github.io/TLGbank/), a type-logical treebank for French. The
 resources in this directory have been designed to work with
 [GrailLight](https://github.com/RichardMoot/GrailLight), my
 lightweight parser for multimodal type-logical grammars.
 
 TLGbank Light contains only the TLGbank files which have been
-derived from the [Sequoia corpus](http://deep-sequoia.inria.fr), and not the much larger part set of files derived from the French Treebank.
+derived from the [Sequoia corpus](http://deep-sequoia.inria.fr), and not the much larger part set of files derived from the French Treebank. 
 
 If you find this work useful, please cite the following publication.
 
