@@ -1,0 +1,204 @@
+#!/usr/bin/sed -f
+
+# add space at end of each line to facilitate matching
+
+s/$/ /g
+
+# keep only word, POS-tag and supertag 
+
+s/\([^| ]*\)|\([^| ]*\)|\([^| ]*\)|[^ ]* /\1|\2|\3 /g
+
+# prepositions
+
+s/pp_pour/pp/g
+s/pp_entre/pp/g
+s/pp_sous/pp/g
+s/pp_comme/pp/g
+s/pp_contre/pp/g
+s/pp_apres/pp/g
+s/pp_dans/pp/g
+s/pp_sans/pp/g
+s/pp_vers/pp/g
+s/pp_en/pp/g
+s/pp_sur/pp/g
+s/pp_avec/pp/g
+s/dr(0,dr(0,dl(0,np,s),np),pp_a)/dr(0,dr(0,dl(0,np,s),np),pp)/g
+s/dr(0,dr(0,dl(0,np,s),np),pp_de)/dr(0,dr(0,dl(0,np,s),np),pp)/g
+s/dr(0,dr(0,dl(0,np,s),s_q),pp_de)/dr(0,dr(0,dl(0,np,s),s_q),pp)/g
+s/dr(0,dr(0,dl(0,np,s),s_q),pp_a)/dr(0,dr(0,dl(0,np,s),s_q),pp)/g
+s/dr(0,dl(0,np,s),pp_a)/dr(0,dl(0,np,s),pp)/g
+s/dr(0,dl(0,np,s),pp_de)/dr(0,dl(0,np,s),pp)/g
+s/dr(0,dl(0,np,s),pp_par)/dr(0,dl(0,np,s),pp)/g
+s/dr(0,dr(0,s,np),pp_a)/dr(0,dr(0,s,np),pp)/g
+s/dr(0,dr(0,dr(0,s,pp_a),np),np)/dr(0,dr(0,dr(0,s,pp),np),np)/g
+s/dr(0,dr(0,dr(0,s,np),pp_a),np)/dr(0,dr(0,dr(0,s,np),pp),np)/g
+s/dr(0,dr(0,s,pp_de),np)/dr(0,dr(0,s,pp),np)/g
+s/dr(0,dr(0,s,pp_a),np)/dr(0,dr(0,s,pp),np)/g
+s/dr(0,dr(0,dr(0,s,pp_de),np),np)/dr(0,dr(0,dr(0,s,pp),np),np)/g
+s/dr(0,dr(0,dl(0,np,s),pp_a),np)/dr(0,dr(0,dl(0,np,s),pp),np)/g
+s/dr(0,dr(0,dl(0,np,s),pp_par),np)/dr(0,dr(0,dl(0,np,s),pp),np)/g
+s/dr(0,dr(0,dl(0,np,s),pp_de),np)/dr(0,dr(0,dl(0,np,s),pp),np)/g
+s/dr(0,dr(0,dl(0,np,s),dl(0,np,s_inf)),pp_a)/dr(0,dr(0,dl(0,np,s),dl(0,np,s_inf)),pp)/g
+s/dr(0,dl(0,dl(0,np,s_inf),s),pp_a)/dr(0,dl(0,dl(0,np,s_inf),s),pp)/g
+s/dr(0,dl(0,dl(0,np,s_inf),s),pp_de)/dr(0,dl(0,dl(0,np,s_inf),s),pp)/g
+s/dr(0,dr(0,dl(0,dl(0,np,s_inf),s),pp_a),dl(0,n,n))/dr(0,dr(0,dl(0,dl(0,np,s_inf),s),pp),dl(0,n,n))/g
+s/dr(0,dl(0,cl_r,dl(0,np,s)),pp_a)/dr(0,dl(0,cl_r,dl(0,np,s)),pp)/g
+s/dr(0,dl(0,cl_r,dl(0,np,s)),pp_de)/dr(0,dl(0,cl_r,dl(0,np,s)),pp)/g
+s/dr(0,dl(0,cl_r,dl(0,np,s)),pp_par)/dr(0,dl(0,cl_r,dl(0,np,s)),pp)/g
+s/dr(0,dr(0,dl(0,cl_r,s),pp_a),np)/dr(0,dr(0,dl(0,cl_r,s),pp),np)/g
+s/dr(0,dr(0,dl(0,cl_r,s),pp_de),np)/dr(0,dr(0,dl(0,cl_r,s),pp),np)/g
+s/dr(0,dr(0,dl(0,cl_r,dl(0,np,s)),pp_de),np)/dr(0,dr(0,dl(0,cl_r,dl(0,np,s)),pp),np)/g
+s/dr(0,dr(0,s,dl(0,np,s_inf)),pp_a)/dr(0,dr(0,s,dl(0,np,s_inf)),pp)/g
+s/dr(0,dr(0,dl(0,np,s),pp_a),dl(0,np,s_inf))/dr(0,dr(0,dl(0,np,s),pp),dl(0,np,s_inf))/g
+s/dr(0,dl(0,np,s_inf),pp_de)/dr(0,dl(0,np,s_inf),pp)/g
+s/dr(0,dl(0,np,s_inf),pp_a)/dr(0,dl(0,np,s_inf),pp)/g
+s/dr(0,dl(0,np,s_inf),pp_par)/dr(0,dl(0,np,s_inf),pp)/g
+s/dr(0,dr(0,dl(0,np,s_inf),np),pp_a)/dr(0,dr(0,dl(0,np,s_inf),np),pp)/g
+s/dr(0,dr(0,dl(0,np,s_inf),pp),pp_a)/dr(0,dr(0,dl(0,np,s_inf),pp),pp)/g
+s/dr(0,dr(0,dl(0,np,s_inf),pp_de),pp_a)/dr(0,dr(0,dl(0,np,s_inf),pp),pp)/g
+s/dr(0,dr(0,dl(0,np,s_inf),pp_a),pp)/dr(0,dr(0,dl(0,np,s_inf),pp),pp)/g
+s/dr(0,dr(0,dl(0,np,s_inf),pp_a),pp_de)/dr(0,dr(0,dl(0,np,s_inf),pp),pp)/g
+s/dr(0,dr(0,dl(0,np,s_inf),np),pp_de)/dr(0,dr(0,dl(0,np,s_inf),np),pp)/g
+s/dr(0,dr(0,dl(0,np,s_inf),np),pp_par)/dr(0,dr(0,dl(0,np,s_inf),np),pp)/g
+s/dr(0,dr(0,dl(0,np,s_inf),pp_a),np)/dr(0,dr(0,dl(0,np,s_inf),pp),np)/g
+s/dr(0,dr(0,dl(0,np,s_inf),pp_de),np)/dr(0,dr(0,dl(0,np,s_inf),pp),np)/g
+s/dr(0,dr(0,dl(0,np,s_inf),pp_par),np)/dr(0,dr(0,dl(0,np,s_inf),pp),np)/g
+s/dr(0,dr(0,dl(0,np,s_inf),s_q),pp_a)/dr(0,dr(0,dl(0,np,s_inf),s_q),pp)/g
+s/dr(0,dr(0,dl(0,np,s_inf),s_q),pp_de)/dr(0,dr(0,dl(0,np,s_inf),s_q),pp)/g
+s/dr(0,dr(0,dl(0,np,s_inf),s_whq),pp_a)/dr(0,dr(0,dl(0,np,s_inf),s_whq),pp)/g
+s/dr(0,dl(0,cl_r,dl(0,np,s_inf)),pp_a)/dr(0,dl(0,cl_r,dl(0,np,s_inf)),pp)/g
+s/dr(0,dl(0,cl_r,dl(0,np,s_inf)),pp_de)/dr(0,dl(0,cl_r,dl(0,np,s_inf)),pp)/g
+s/dr(0,dl(0,cl_r,dl(0,np,s_inf)),pp_par)/dr(0,dl(0,cl_r,dl(0,np,s_inf)),pp)/g
+s/dr(0,dr(0,dl(0,np,s_inf),dl(0,np,s_inf)),pp_a)/dr(0,dr(0,dl(0,np,s_inf),dl(0,np,s_inf)),pp)/g
+s/dr(0,dr(0,dl(0,np,s_inf),pp_a),dl(0,np,s_inf))/dr(0,dr(0,dl(0,np,s_inf),pp),dl(0,np,s_inf))/g
+s/dr(0,dr(0,dr(0,dl(0,np,s_inf),pp_par),pp_de),np)/dr(0,dr(0,dr(0,dl(0,np,s_inf),pp),pp),np)/g
+s/dr(0,dr(0,dr(0,dl(0,np,s_inf),pp_a),np),pp)/dr(0,dr(0,dr(0,dl(0,np,s_inf),pp),np),pp)/g
+s/dr(0,dr(0,dr(0,dl(0,np,s_inf),pp_a),dl(0,n,n)),np)/dr(0,dr(0,dr(0,dl(0,np,s_inf),pp),dl(0,n,n)),np)/g
+s/dr(0,dr(0,dr(0,dl(0,np,s_inf),dl(0,np,s_inf)),pp_par),np)/dr(0,dr(0,dr(0,dl(0,np,s_inf),dl(0,np,s_inf)),pp),np)/g
+s/dr(0,dr(0,dl(0,np,s_inf),pp_a),dl(0,n,n))/dr(0,dr(0,dl(0,np,s_inf),pp),dl(0,n,n))/g
+
+# infinitives
+
+s/s_ainf/s_inf/g
+s/s_deinf/s_inf/g
+s/pour_infm/dl(0,np,s)/g
+s/pour_inf/dl(0,np,s_inf)/g
+s/par_infm/dl(0,np,s)/g
+s/par_inf/dl(0,np,s_inf)/g
+
+#s/en|[^|]*|dr(0,pp,np) /en|PRP|dr(0,pp_en,np) /g
+#s/en|[^|]*|dr(0,pp,n) /en|PRP|dr(0,pp_en,n) /g
+#s/après|[^|]*|dr(0,pp,np) /après|PRP|dr(0,pp_apres,np) /g
+#s/après|[^|]*|dr(0,pp,n) /après|PRP|dr(0,pp_apres,n) /g
+#s/après|[^|]*|dr(0,pp,np) /après|PRP|dr(0,pp_apres,np) /g
+#s/après|[^|]*|dr(0,pp,n) /après|PRP|dr(0,pp_apres,n) /g
+
+#s/par|[^|]*|dr(0,pp,np) /par|PRP|dr(0,pp_par,np) /g
+#s/par|[^|]*|dr(0,pp,n) /par|PRP|dr(0,pp_par,n) /g
+
+#s/pour|[^|]*|dr(0,pp,np) /pour|PRP|dr(0,pp_pour,np) /g
+#s/pour|[^|]*|dr(0,pp,n) /pour|PRP|dr(0,pp_pour,n) /g
+
+#s/sous|[^|]*|dr(0,pp,np) /sous|PRP|dr(0,pp_sous,np) /g
+#s/sous|[^|]*|dr(0,pp,n) /sous|PRP|dr(0,pp_sous,n) /g
+
+#s/entre|[^|]*|dr(0,pp,np) /entre|PRP|dr(0,pp_entre,np) /g
+#s/entre|[^|]*|dr(0,pp,n) /entre|PRP|dr(0,pp_entre,n) /g
+
+#s/comme|[^|]*|dr(0,pp,np) /comme|PRP|dr(0,pp_comme,np) /g
+#s/comme|[^|]*|dr(0,pp,n) /comme|PRP|dr(0,pp_comme,n) /g
+
+#s/dans|[^|]*|dr(0,pp,np) /dans|PRP|dr(0,pp_dans,np) /g
+#s/dans|[^|]*|dr(0,pp,n) /dans|PRP|dr(0,pp_dans,n) /g
+
+#s/contre|[^|]*|dr(0,pp,np) /contre|PRP|dr(0,pp_contre,np) /g
+#s/contre|[^|]*|dr(0,pp,n) /contre|PRP|dr(0,pp_contre,n) /g
+
+#s/avec|[^|]*|dr(0,pp,np) /avec|PRP|dr(0,pp_avec,np) /g
+#s/avec|[^|]*|dr(0,pp,n) /avec|PRP|dr(0,pp_avec,n) /g
+
+#s/en|[^|]*|dr(0,pp,np) /en|PRP|dr(0,pp_en,np) /g
+#s/en|[^|]*|dr(0,pp,n) /en|PRP|dr(0,pp_en,n) /g
+
+#s/sur|[^|]*|dr(0,pp,np) /sur|PRP|dr(0,pp_sur,np) /g
+#s/sur|[^|]*|dr(0,pp,n) /sur|PRP|dr(0,pp_sur,n) /g
+
+#s/par|[^|]*|dr(0,pp,np) /par|P-PRP|dr(0,pp_par,np) /g
+#s/par|[^|]*|dr(0,pp,n) /par|P-PRP|dr(0,pp_par,n) /g
+
+#s/d\'|[^|]*|dr(0,pp,np) /d\'|P-PRP|dr(0,pp_de,np) /g
+#s/d\'|[^|]*|dr(0,pp,n) /d\'|P-PRP|dr(0,pp_de,n) /g
+#s/de|[^|]*|dr(0,pp,np) /de|P-PRP|dr(0,pp_de,np) /g
+#s/de|[^|]*|dr(0,pp,n) /de|P-PRP|dr(0,pp_de,n) /g
+#s/du|[^|]*|dr(0,pp,np) /du|P+D-PRP:det|dr(0,pp_de,n) /g
+#s/du|[^|]*|dr(0,pp,n) /du|P+D-PRP:det|dr(0,pp_de,n) /g
+#s/des|[^|]*|dr(0,pp,np) /des|P+D-PRP:det|dr(0,pp_de,n) /g
+#s/des|[^|]*|dr(0,pp,n) /des|P+D-PRP:det|dr(0,pp_de,n) /g
+
+#s/à|[^|]*|dr(0,pp,n) /à|P-PRP|dr(0,pp_a,n) /g
+#s/à|[^|]*|dr(0,pp,np) /à|P-PRP|dr(0,pp_a,np) /g
+#s/au|[^|]*|dr(0,pp,n) /au|P+D-PRP:det|dr(0,pp_a,n) /g
+#s/aux|[^|]*|dr(0,pp,n) /aux|P+D-PRP:det|dr(0,pp_a,n) /g
+
+
+# passives
+
+# problem: we need to reanalyze n to have type e->s->t (most of the
+# time, this event will be irrelevant and/or equal to the event of
+# the main verb
+#s/,passm,/,dl(0,n,n),/g
+#s/,passm)/,dl(0,n,n))/g
+#s/|passm/|dl(0,np,s)/g
+#s/|passa/|dl(1,dl(0,n,n),dl(0,n,n))/g
+#s/,passa,/,dl(1,dl(0,n,n),dl(0,n,n)),/g
+#s/,passa)/,dl(1,dl(0,n,n),dl(0,n,n)))/g
+#s/,pass,/,dl(0,n,n),/g
+#s/,pass)/,dl(0,n,n))/g
+#s/|pass/|dl(0,n,n)/g
+
+s/avant|P-PRP|dr(0,passa,dl(0,np,s_deinf))/avant|P-PRP|dr(0,dl(0,dl(0,np,s),dl(0,np,s)),dl(0,np,s_deinf))/g
+s/pour|P-PRP|dr(0,passadv,dl(0,np,s_inf))/pour|P-PRP|dr(0,dl(1,s,s),dl(0,np,s_inf))/g
+s/pour|P-PRP|dr(0,passa,dl(0,np,s_inf))/pour|P-PRP|dr(0,dl(0,dl(0,np,s),dl(0,np,s)),dl(0,np,s_inf))/g
+s/en|P-PRP|dr(0,passa,dl(0,np,s_ppres))/en|P-PRP|dr(0,dl(0,dl(0,np,s),dl(0,np,s)),dl(0,np,s_ppres))/g
+s/afin|ADV-ADV|dr(0,passa,dl(0,np,s_deinf))/afin|ADV-ADV|dr(0,dl(0,dl(0,np,s),dl(0,np,s)),dl(0,np,s_deinf))/g
+s/,passm,/,dl(0,np,s),/g
+s/,passm)/,dl(0,np,s))/g
+s/|passm/|dl(0,np,s)/g
+s/|passa/|dl(1,s,s)/g
+s/,passa,/,dl(1,s,s),/g
+s/,passa)/,dl(1,s,s))/g
+s/,pass,/,dl(0,np,s_pass),/g
+s/,pass)/,dl(0,np,s_pass))/g
+s/|pass/|dl(0,np,s_pass)/g
+
+# appositives
+
+#s/|appb/|dr(0,dl(0,n,n),np)/g 
+#s/,appb,/,dr(0,dl(0,n,n),np),/g 
+#s/,appb)/,dr(0,dl(0,n,n),np))/g 
+#s/|appm/|dr(0,np,np)/g 
+#s/,appm,/,dr(0,np,np),/g 
+#s/,appm)/,dr(0,np,np))/g 
+#s/|appe/|np/g 
+#s/,appc,/,dl(0,n,n),/g 
+#s/,appc)/,dl(0,n,n))/g 
+
+s/|appb/|dl(0,n,n)/g
+s/,appb,/,dl(0,n,n),/g
+s/,appb)/,dl(0,n,n))/g
+s/|appd/|dl(0,n,n)/g
+s/|appm/|dl(0,n,n)/g
+s/,appm,/,dl(0,n,n),/g
+s/,appm)/,dl(0,n,n))/g
+s/|appe/|dl(0,n,n)/g
+s/|appp/|dl(0,n,n)/g
+s/,appc,/,dl(0,dia(0,box(0,n)),n),/g
+s/,appc)/,dl(0,dia(0,box(0,n)),n))/g
+
+# remove spaces at end of lines
+
+s/ *$//g
+
+# delete commentary lines
+
+/^#/d

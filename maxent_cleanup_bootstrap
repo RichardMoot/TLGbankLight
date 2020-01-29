@@ -1,0 +1,74 @@
+#!/usr/bin/sed -f
+
+# cleanup for bootstrapping; doesn't change meta-annotation
+# for passives and for appositives.
+ 
+# add space at end of each line to facilitate matching
+
+s/$/ /g
+
+# keep only word, POS-tag and supertag 
+
+s/\([^| ]*\)|\([^| ]*\)|\([^| ]*\)|[^ ]* /\1|\2|\3 /g
+
+# prepositions
+s/en|[^|]*|dr(0,pp,np) /en|PRP|dr(0,pp_en,np) /g
+s/en|[^|]*|dr(0,pp,n) /en|PRP|dr(0,pp_en,n) /g
+
+s/après|[^|]*|dr(0,pp,np) /après|PRP|dr(0,pp_apres,np) /g
+s/après|[^|]*|dr(0,pp,n) /après|PRP|dr(0,pp_apres,n) /g
+
+s/par|[^|]*|dr(0,pp,np) /par|PRP|dr(0,pp_par,np) /g
+s/par|[^|]*|dr(0,pp,n) /par|PRP|dr(0,pp_par,n) /g
+
+s/pour|[^|]*|dr(0,pp,np) /pour|PRP|dr(0,pp_pour,np) /g
+s/pour|[^|]*|dr(0,pp,n) /pour|PRP|dr(0,pp_pour,n) /g
+
+s/sous|[^|]*|dr(0,pp,np) /sous|PRP|dr(0,pp_sous,np) /g
+s/sous|[^|]*|dr(0,pp,n) /sous|PRP|dr(0,pp_sous,n) /g
+
+s/entre|[^|]*|dr(0,pp,np) /entre|PRP|dr(0,pp_entre,np) /g
+s/entre|[^|]*|dr(0,pp,n) /entre|PRP|dr(0,pp_entre,n) /g
+
+s/comme|[^|]*|dr(0,pp,np) /comme|PRP|dr(0,pp_comme,np) /g
+s/comme|[^|]*|dr(0,pp,n) /comme|PRP|dr(0,pp_comme,n) /g
+
+s/dans|[^|]*|dr(0,pp,np) /dans|PRP|dr(0,pp_dans,np) /g
+s/dans|[^|]*|dr(0,pp,n) /dans|PRP|dr(0,pp_dans,n) /g
+
+s/contre|[^|]*|dr(0,pp,np) /contre|PRP|dr(0,pp_contre,np) /g
+s/contre|[^|]*|dr(0,pp,n) /contre|PRP|dr(0,pp_contre,n) /g
+
+s/avec|[^|]*|dr(0,pp,np) /avec|PRP|dr(0,pp_avec,np) /g
+s/avec|[^|]*|dr(0,pp,n) /avec|PRP|dr(0,pp_avec,n) /g
+
+s/en|[^|]*|dr(0,pp,np) /en|PRP|dr(0,pp_en,np) /g
+s/en|[^|]*|dr(0,pp,n) /en|PRP|dr(0,pp_en,n) /g
+
+s/sur|[^|]*|dr(0,pp,np) /sur|PRP|dr(0,pp_sur,np) /g
+s/sur|[^|]*|dr(0,pp,n) /sur|PRP|dr(0,pp_sur,n) /g
+
+s/par|[^|]*|dr(0,pp,np) /par|PRP|dr(0,pp_par,np) /g
+s/par|[^|]*|dr(0,pp,n) /par|PRP|dr(0,pp_par,n) /g
+
+s/d\'|[^|]*|dr(0,pp,np) /d\'|PRP|dr(0,pp_de,np) /g
+s/d\'|[^|]*|dr(0,pp,n) /d\'|PRP|dr(0,pp_de,n) /g
+s/de|[^|]*|dr(0,pp,np) /de|PRP|dr(0,pp_de,np) /g
+s/de|[^|]*|dr(0,pp,n) /de|PRP|dr(0,pp_de,n) /g
+s/du|[^|]*|dr(0,pp,np) /du|PRP:det|dr(0,pp_de,n) /g
+s/du|[^|]*|dr(0,pp,n) /du|PRP:det|dr(0,pp_de,n) /g
+s/des|[^|]*|dr(0,pp,np) /des|PRP:det|dr(0,pp_de,n) /g
+s/des|[^|]*|dr(0,pp,n) /des|PRP:det|dr(0,pp_de,n) /g
+
+s/à|[^|]*|dr(0,pp,n) /à|PRP|dr(0,pp_a,n) /g
+s/à|[^|]*|dr(0,pp,np) /à|PRP|dr(0,pp_a,np) /g
+s/au|[^|]*|dr(0,pp,n) /au|PRP:det|dr(0,pp_a,n) /g
+s/aux|[^|]*|dr(0,pp,n) /aux|PRP:det|dr(0,pp_a,n) /g
+
+# remove spaces at end of lines
+
+s/ *$//g
+
+# delete commentary lines
+
+/^#/d
